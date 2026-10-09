@@ -1,22 +1,18 @@
 class Solution {
 public:
     int mostWordsFound(vector<string>& sentences) {
-        int max = 0;
+        int maxLength = 0,count = 1;
 
-        for (int i = 0; i < sentences.size(); i++) {
-            int count = 1; 
-
-            for (int j = 0; j < sentences[i].size(); j++) {
-                if (sentences[i][j] == ' ') {
+        for(int i = 0 ;i < sentences.size();i++){
+            for(int j = 0;j < sentences[i].size();j++){
+                if(sentences[i][j] == ' '){
                     count++;
+                    cout << count << endl;
                 }
             }
-
-            if (count > max) {
-                max = count;
-            }
+            maxLength = max(count,maxLength);
+            count = 1;
         }
-
-        return max;
+        return maxLength;
     }
 };
